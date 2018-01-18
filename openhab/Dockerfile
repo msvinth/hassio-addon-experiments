@@ -90,6 +90,11 @@ RUN wget -nv -O /tmp/openhab.zip ${OPENHAB_URL} &&\
 # Expose volume with configuration and userdata dir
 VOLUME ${APPDIR}/conf ${APPDIR}/userdata ${APPDIR}/addons
 
+# add tty
+Tty ["true"]
+
+TestTty ['true']
+
 # Execute command
 WORKDIR ${APPDIR}
 COPY entrypoint.sh /
