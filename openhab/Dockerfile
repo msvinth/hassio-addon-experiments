@@ -91,9 +91,9 @@ RUN wget -nv -O /tmp/openhab.zip ${OPENHAB_URL} &&\
 VOLUME ${APPDIR}/conf ${APPDIR}/userdata ${APPDIR}/addons
 
 # add tty
-Tty ["true"]
+TTY ["true"]
 
-TestTty ['true']
+ENV Tty ["true"]
 
 # Execute command
 WORKDIR ${APPDIR}
