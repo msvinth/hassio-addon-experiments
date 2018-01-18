@@ -1,6 +1,6 @@
 {
-  "name": "OpenHAB 2",
-  "version": "0.1",
+  "name": "OpenHAB 2.2.0",
+  "version": "0.1b",
   "slug": "openhab",
   "arch": ["armhf"],
   "description": "OpenHAB 2 experiment",
