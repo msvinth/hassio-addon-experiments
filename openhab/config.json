@@ -1,14 +1,21 @@
 {
-  "name": "OpenHAB 2.2.0",
-  "version": "0.1b",
+  "name": "OpenHAB 2",
+  "version": "0.2",
   "slug": "openhab",
   "arch": ["armhf"],
-  "description": "OpenHAB 2 experiment",
+  "description": "OpenHAB 2",
   "startup": "after",
   "boot": "auto",
+  "map": [
+    "share:rw",
+    "config:rw"
+  ],
   "options": {},
   "schema": {},
-  "url": "https://github.com/balloob/hassio-addon-experiments/tree/master/openhab",
+  "url": "https://github.com/Trektus/hassio-addon-experiments/tree/master/openhab",
+  "webui": "http://[HOST]:[PORT:8080]",
+  "ingress": true,
+  "ingress_port": 0,
   "ports": {
     "8080/tcp": 8080
   }

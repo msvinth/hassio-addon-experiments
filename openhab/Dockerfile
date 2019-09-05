@@ -14,8 +14,8 @@ ENV VERSION %%VERSION%%
 
 # Set download urls
 ENV JAVA_URL="https://www.azul.com/downloads/zulu/zdk-8-ga-linux_aarch32hf.tar.gz"
-ENV OPENHAB_URL="https://bintray.com/openhab/mvn/download_file?file_path=org%2Fopenhab%2Fdistro%2Fopenhab%2F2.2.0%2Fopenhab-2.2.0.zip"
-ENV OPENHAB_VERSION="2.2.0"
+ENV OPENHAB_URL="https://bintray.com/openhab/mvn/download_file?file_path=org%2Fopenhab%2Fdistro%2Fopenhab%2F2.4.0%2Fopenhab-2.4.0.zip"
+ENV OPENHAB_VERSION="2.4.0"
 
 # Set variables
 ENV \
@@ -90,10 +90,8 @@ RUN wget -nv -O /tmp/openhab.zip ${OPENHAB_URL} &&\
 # Expose volume with configuration and userdata dir
 VOLUME ${APPDIR}/conf ${APPDIR}/userdata ${APPDIR}/addons
 
-# add tty
-TTY ["true"]
-
-ENV Tty ["true"]
+# Make port 8080 available to the world outside this container
+EXPOSE 8080
 
 # Execute command
 WORKDIR ${APPDIR}
