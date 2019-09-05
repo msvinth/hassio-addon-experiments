@@ -13,9 +13,6 @@
   "options": {},
   "schema": {},
   "url": "https://github.com/Trektus/hassio-addon-experiments/tree/master/openhab",
-  "webui": "http://[HOST]:[PORT:8080]",
-  "ingress": true,
-  "ingress_port": 0,
   "ports": {
     "8080/tcp": 8080
   }
