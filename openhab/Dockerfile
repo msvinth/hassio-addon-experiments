@@ -11,8 +11,8 @@ FROM multiarch/debian-debootstrap:amd64-buster
 # Set download urls
 ENV \
     JAVA_URL="https://cdn.azul.com/zulu/bin/zulu8.50.0.21-ca-jdk8.0.272-linux_x64.tar.gz" \
-    OPENHAB_URL="https://bintray.com/openhab/mvn/download_file?file_path=org%2Fopenhab%2Fdistro%2Fopenhab%2F2.4.0%2Fopenhab-2.4.0.zip" \
-    OPENHAB_VERSION="2.4.0"
+    OPENHAB_URL="https://bintray.com/openhab/mvn/download_file?file_path=org%2Fopenhab%2Fdistro%2Fopenhab%2F2.5.10%2Fopenhab-2.5.10.zip" \
+    OPENHAB_VERSION="2.5.10"
 
 # Set variables and locales
 ENV \
@@ -87,7 +87,7 @@ RUN wget -nv -O /tmp/openhab.zip "${OPENHAB_URL}" && \
     unzip -q /tmp/openhab.zip -d "${OPENHAB_HOME}" -x "*.bat" "*.ps1" "*.psm1" && \
     rm /tmp/openhab.zip && \
     if [ ! -f "${OPENHAB_HOME}/runtime/bin/update.lst" ]; then touch "${OPENHAB_HOME}/runtime/bin/update.lst"; fi && \
-    if [ ! -f "${OPENHAB_HOME}/runtime/bin/userdata_sysfiles.lst" ]; then wget -nv -O "${OPENHAB_HOME}/runtime/bin/userdata_sysfiles.lst" "https://raw.githubusercontent.com/openhab/openhab-distro/2.4.0/distributions/openhab/src/main/resources/bin/userdata_sysfiles.lst"; fi && \
+    if [ ! -f "${OPENHAB_HOME}/runtime/bin/userdata_sysfiles.lst" ]; then wget -nv -O "${OPENHAB_HOME}/runtime/bin/userdata_sysfiles.lst" "https://raw.githubusercontent.com/openhab/openhab-distro/2.5.10/distributions/openhab/src/main/resources/bin/userdata_sysfiles.lst"; fi && \
     mkdir -p "${OPENHAB_LOGDIR}" && \
     touch "${OPENHAB_LOGDIR}/openhab.log" && \
     mkdir -p "${OPENHAB_HOME}/dist" && \
