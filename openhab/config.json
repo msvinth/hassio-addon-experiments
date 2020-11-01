@@ -1,6 +1,6 @@
 {
   "name": "OpenHAB 2",
-  "version": "0.3",
+  "version": "0.3.1",
   "slug": "openhab",
   "arch": ["amd64"],
   "description": "OpenHAB 2",
