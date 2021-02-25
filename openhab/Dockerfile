@@ -91,7 +91,7 @@ RUN wget -nv -O /tmp/openhab.zip "${OPENHAB_URL}" && \
     mkdir -p "${OPENHAB_LOGDIR}" && \
     touch "${OPENHAB_LOGDIR}/openhab.log" && \
     mkdir -p "${OPENHAB_HOME}/dist" && \
-    cp -a "${OPENHAB_HOME}/dist" && \
+    cp -a "/openhab/conf" "/openhab/userdata" "${OPENHAB_HOME}/dist" && \
     echo 'export TERM=${TERM:=dumb}' | tee -a ~/.bashrc
 #COPY update.sh ${OPENHAB_HOME}/runtime/bin/update
 #RUN chmod +x ${OPENHAB_HOME}/runtime/bin/update
