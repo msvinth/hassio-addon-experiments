@@ -96,6 +96,7 @@ esac
 
 # Set openhab folder permission
 chown -R openhab:openhab "${OPENHAB_HOME}"
+chown -R openhab:openhab "${OPENHAB_USERDATA}"
 sync
 
 # Run s6-style init continuation scripts if existent
