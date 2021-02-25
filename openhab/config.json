@@ -1,6 +1,6 @@
 {
   "name": "OpenHAB 2",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "slug": "openhab",
   "arch": ["amd64"],
   "description": "OpenHAB 2",
@@ -14,6 +14,7 @@
   "schema": {},
   "url": "https://github.com/msvinth/hassio-addon-experiments/tree/master/openhab",
   "ports": {
-    "8080/tcp": 8080
+    "8080/tcp": 8080,
+    "9001/tcp": 9001
   }
 }

@@ -101,7 +101,7 @@ RUN wget -nv -O /tmp/openhab.zip "${OPENHAB_URL}" && \
 VOLUME ${OPENHAB_HOME}/addons
 
 # Expose HTTP, HTTPS, Console and LSP ports
-EXPOSE 8080 8443 8101 5007
+EXPOSE 8080 8443 8101 5007 9001
 
 # Set working directory and entrypoint
 WORKDIR ${OPENHAB_HOME}
