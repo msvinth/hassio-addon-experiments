@@ -67,7 +67,9 @@ case ${OPENHAB_VERSION} in
       initialize_volume "${OPENHAB_HOME}/configurations" "${OPENHAB_HOME}/dist/configurations"
     ;;
   2.*)
+      mkdir -p "${OPENHAB_CONF}"
       chmod -R 777 "${OPENHAB_CONF}"
+      mkdir -p "${OPENHAB_USERDATA}"
       chmod -R 777 "${OPENHAB_USERDATA}"
       initialize_volume "${OPENHAB_CONF}" "${OPENHAB_HOME}/dist/conf"
       initialize_volume "${OPENHAB_USERDATA}" "${OPENHAB_HOME}/dist/userdata"

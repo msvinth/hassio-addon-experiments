@@ -90,8 +90,6 @@ RUN wget -nv -O /tmp/openhab.zip "${OPENHAB_URL}" && \
     if [ ! -f "${OPENHAB_HOME}/runtime/bin/userdata_sysfiles.lst" ]; then wget -nv -O "${OPENHAB_HOME}/runtime/bin/userdata_sysfiles.lst" "https://raw.githubusercontent.com/openhab/openhab-distro/2.5.10/distributions/openhab/src/main/resources/bin/userdata_sysfiles.lst"; fi && \
     mkdir -p "${OPENHAB_LOGDIR}" && \
     touch "${OPENHAB_LOGDIR}/openhab.log" && \
-    mkdir -p "${OPENHAB_CONF}" && \
-    mkdir -p "${OPENHAB_USERDATA}" && \
     mkdir -p "${OPENHAB_HOME}/dist" && \
     cp -a "${OPENHAB_CONF}" "${OPENHAB_USERDATA}" "${OPENHAB_HOME}/dist" && \
     echo 'export TERM=${TERM:=dumb}' | tee -a ~/.bashrc
