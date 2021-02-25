@@ -67,6 +67,8 @@ case ${OPENHAB_VERSION} in
       initialize_volume "${OPENHAB_HOME}/configurations" "${OPENHAB_HOME}/dist/configurations"
     ;;
   2.*)
+      chown -R 777 "${OPENHAB_CONF}"
+      chown -R 777 "${OPENHAB_USERDATA}"
       initialize_volume "${OPENHAB_CONF}" "${OPENHAB_HOME}/dist/conf"
       initialize_volume "${OPENHAB_USERDATA}" "${OPENHAB_HOME}/dist/userdata"
 
