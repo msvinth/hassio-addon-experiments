@@ -24,12 +24,12 @@ ENV \
     LANG="en_US.UTF-8" \
     LANGUAGE="en_US.UTF-8" \
     OPENHAB_BACKUPS="/openhab/userdata/backup" \
-    OPENHAB_CONF="/openhab/conf" \
+    OPENHAB_CONF="/config/openhab/conf" \
     OPENHAB_HOME="/openhab" \
     OPENHAB_HTTP_PORT="8080" \
     OPENHAB_HTTPS_PORT="8443" \
     OPENHAB_LOGDIR="/openhab/userdata/logs" \
-    OPENHAB_USERDATA="/openhab/userdata" \
+    OPENHAB_USERDATA="/config/openhab/userdata" \
     USER_ID="9001"
 
 # Set arguments on build
@@ -90,6 +90,8 @@ RUN wget -nv -O /tmp/openhab.zip "${OPENHAB_URL}" && \
     if [ ! -f "${OPENHAB_HOME}/runtime/bin/userdata_sysfiles.lst" ]; then wget -nv -O "${OPENHAB_HOME}/runtime/bin/userdata_sysfiles.lst" "https://raw.githubusercontent.com/openhab/openhab-distro/2.5.10/distributions/openhab/src/main/resources/bin/userdata_sysfiles.lst"; fi && \
     mkdir -p "${OPENHAB_LOGDIR}" && \
     touch "${OPENHAB_LOGDIR}/openhab.log" && \
+    mkdir -p "${OPENHAB_CONF}" && \
+    mkdir -p "${OPENHAB_USERDATA}" && \
     mkdir -p "${OPENHAB_HOME}/dist" && \
     cp -a "${OPENHAB_CONF}" "${OPENHAB_USERDATA}" "${OPENHAB_HOME}/dist" && \
     echo 'export TERM=${TERM:=dumb}' | tee -a ~/.bashrc
@@ -97,7 +99,8 @@ RUN wget -nv -O /tmp/openhab.zip "${OPENHAB_URL}" && \
 #RUN chmod +x ${OPENHAB_HOME}/runtime/bin/update
 
 # Expose volume with configuration and userdata dir
-VOLUME ${OPENHAB_CONF} ${OPENHAB_USERDATA} ${OPENHAB_HOME}/addons
+# VOLUME ${OPENHAB_CONF} ${OPENHAB_USERDATA} ${OPENHAB_HOME}/addons
+VOLUME ${OPENHAB_HOME}/addons
 
 # Expose HTTP, HTTPS, Console and LSP ports
 EXPOSE 8080 8443 8101 5007
