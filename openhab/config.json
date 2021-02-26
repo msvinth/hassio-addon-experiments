@@ -1,13 +1,13 @@
 {
   "name": "OpenHAB 2",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "slug": "openhab",
   "arch": ["amd64"],
   "description": "OpenHAB 2",
   "startup": "after",
   "boot": "auto",
   "ingress": true,
-  "ingress_port": 8080,
+  "ingress_port": 0,
   "map": [
     "share:rw",
     "config:rw"
