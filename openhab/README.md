@@ -7,7 +7,7 @@ Tested on Intel NUC
 
  - Based off https://github.com/openhab/openhab-docker/tree/master/2.10.0/amd64
  - Added `ENV VERSION %%VERSION%%` to satisfy Hass.io
- - Supports Ingress. May be cases where it does not work fully. openHab does not really support this. PaperUI seems to work fine.
+ - Supports Ingress. May be cases where it does not work fully. openHab does not really support this, but PaperUI seems to work fine.
  - Created a config.json that optionally exposes port 8080 (on which OpenHAB exposes their HTTP server)
  - openHab conf folder is available in HomeAssistant config folder so that it can be easily edited with the Home Assistant VSCode addon.
 
