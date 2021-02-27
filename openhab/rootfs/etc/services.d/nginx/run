@@ -4,15 +4,7 @@
 # Runs the Nginx daemon
 # ==============================================================================
 
-# Use server mode with the default command when there is no pseudo-TTY
-#if [ "$interactive" == "false" ] && [ "$(IFS=" "; echo "$@")" == "gosu openhab tini -s ./start.sh" ]; then
-#    command=($@ server)
-#    exec "${command[@]}"
-#else
-#    exec "$@"
-#fi
-
-# Wait for grafana to become available
+# Wait for openHab to become available
 bashio::net.wait_for 8080
 
 bashio::log.info "Starting NGinx..."
