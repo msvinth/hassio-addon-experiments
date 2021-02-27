@@ -99,14 +99,3 @@ chown -R openhab:openhab "${OPENHAB_HOME}"
 chown -R openhab:openhab "${OPENHAB_USERDATA}"
 sync
 
-# # Run s6-style init continuation scripts if existent
-# if [ -d /etc/cont-init.d ]
-# then
-#     for script in $(find /etc/cont-init.d -type f | grep -v \~ | sort)
-#     do
-#         . "${script}"
-#     done
-# fi
-
-# # sync again after continuation scripts have been run
-# sync
