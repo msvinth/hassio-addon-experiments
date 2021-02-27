@@ -60,8 +60,10 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
     maintainer="openHAB <info@openhabfoundation.org>"
 
 # Install basepackages
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+RUN \
+    ARCH="${BUILD_ARCH}" \
+    apt-get update && \
+    apt-get install --no-install-recommends -y \
         arping \
         ca-certificates \
         curl \
