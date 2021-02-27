@@ -14,7 +14,6 @@
   "schema": {},
   "url": "https://github.com/msvinth/hassio-addon-experiments/tree/master/openhab",
   "ports": {
-    "8080/tcp": 8080,
-    "9001/tcp": 9001
+    "8080/tcp": 8080
   }
 }
