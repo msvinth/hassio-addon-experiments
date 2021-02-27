@@ -1,20 +1,14 @@
 OpenHAB 2
 ---------
 
+This currenly only works on amd64 architecture.
+Tested on Intel NUC
 Building this locally takes 10 minutes on my Raspberry Pi 3. So when clicking install in the UI, it will timeout. Don't worry, after 10 minutes it will popup as installed and you can start it.
 
- - Based off https://github.com/openhab/openhab-docker/tree/master/2.4.0/armhf
+ - Based off https://github.com/openhab/openhab-docker/tree/master/2.10.0/amd64
  - Added `ENV VERSION %%VERSION%%` to satisfy Hass.io
- - Created a config.json that exposes port 8080 (on which OpenHAB exposes their HTTP server)
- - After installing add-on, add as an iframe panel to make UI part of Home Assistant:
-
- ```yaml
-panel_iframe:
-  openhab:
-    title: 'OpenHAB 2'
-    url: 'http://hassio.local:8080/'
-    icon: mdi:emoticon-devil
- ```
+ - Supports Ingress. May be cases where it does not work.
+ - Created a config.json that optionally exposes port 8080 (on which OpenHAB exposes their HTTP server)
 
 ![OpenHAB2 container logs](./logs.png)
 
