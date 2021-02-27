@@ -18,7 +18,6 @@ ARG BUILD_ARCH=amd64
 
 # Set download urls
 ENV \
-    JAVA_URL="https://cdn.azul.com/zulu/bin/zulu8.52.0.23-ca-jdk8.0.282-linux_x64.tar.gz" \
     OPENHAB_URL="https://bintray.com/openhab/mvn/download_file?file_path=org%2Fopenhab%2Fdistro%2Fopenhab%2F2.5.12%2Fopenhab-2.5.12.zip" \
     OPENHAB_VERSION="2.5.12"
 
@@ -62,6 +61,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 # Install basepackages
 RUN \
     ARCH="${BUILD_ARCH}" \
+    && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
+    && if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="armhf"; fi \
     && apt-get update && \
     apt-get install --no-install-recommends -y \
         arping \
@@ -88,8 +89,13 @@ COPY rootfs /
 
 # Install java
 ENV JAVA_HOME='/usr/lib/java-8'
-RUN wget -nv -O /tmp/java.tar.gz "${JAVA_URL}" && \
-    mkdir "${JAVA_HOME}" && \
+RUN mkdir "${JAVA_HOME}" && \
+    zulu8_amd64_url='https://cdn.azul.com/zulu/bin/zulu8.52.0.23-ca-jdk8.0.282-linux_x64.tar.gz' && \
+    zulu8_armhf_url='https://cdn.azul.com/zulu-embedded/bin/zulu8.52.0.23-ca-jdk8.0.282-linux_aarch32hf.tar.gz' && \
+    zulu8_arm64_url='https://cdn.azul.com/zulu-embedded/bin/zulu8.52.0.23-ca-jdk8.0.282-linux_aarch64.tar.gz' && \
+    url_var="zulu8_${ARCH}_url" && \
+    eval "java_url=\$$url_var" && \
+    wget -nv -O /tmp/java.tar.gz "${java_url}" && \
     tar --exclude='demo' --exclude='sample' --exclude='src.zip' -xf /tmp/java.tar.gz --strip-components=1 -C "${JAVA_HOME}" && \
     rm /tmp/java.tar.gz && \
     update-alternatives --install /usr/bin/java java "${JAVA_HOME}/bin/java" 50 && \
