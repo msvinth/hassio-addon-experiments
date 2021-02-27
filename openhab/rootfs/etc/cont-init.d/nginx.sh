@@ -10,11 +10,11 @@ declare ingress_entry
 declare ingress_interface
 declare keyfile
 
-# bashio::log.info "Init NGinx..."
+bashio::log.info "Init NGinx..."
 
-# port=$(bashio::addon.port 8080)
-# if bashio::var.has_value "${port}"; then
-# fi
+port=$(bashio::addon.port 8080)
+if bashio::var.has_value "${port}"; then
+fi
 # if bashio::var.has_value "${port}"; then
 #     bashio::config.require.ssl
 
