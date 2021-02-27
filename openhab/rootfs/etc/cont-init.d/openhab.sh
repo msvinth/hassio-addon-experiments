@@ -86,7 +86,7 @@ case ${OPENHAB_VERSION} in
         tar --exclude="${OPENHAB_BACKUPS}" -c -f "${OPENHAB_BACKUPS}/${backup_file}" "${OPENHAB_USERDATA}"
         echo "You can find backup of userdata in ${OPENHAB_BACKUPS}/${backup_file}" | tee -a "${OPENHAB_LOGDIR}/update.log"
 
-        exec "${OPENHAB_HOME}/runtime/bin/update" 2>&1 | tee -a "${OPENHAB_LOGDIR}/update.log"
+        exec "/etc/openhab/update" 2>&1 | tee -a "${OPENHAB_LOGDIR}/update.log"
       fi
     ;;
   *)

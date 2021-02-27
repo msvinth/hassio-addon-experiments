@@ -20,7 +20,7 @@ ARG BUILD_ARCH=amd64
 ENV \
     JAVA_URL="https://cdn.azul.com/zulu/bin/zulu8.52.0.23-ca-jdk8.0.282-linux_x64.tar.gz" \
     OPENHAB_URL="https://bintray.com/openhab/mvn/download_file?file_path=org%2Fopenhab%2Fdistro%2Fopenhab%2F2.5.12%2Fopenhab-2.5.12.zip" \
-    OPENHAB_VERSION="2.5.10"
+    OPENHAB_VERSION="2.5.12"
 
 # Set variables and locales
 ENV \
