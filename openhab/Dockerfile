@@ -6,7 +6,9 @@
 #                       PLEASE DO NOT EDIT IT DIRECTLY.
 # ------------------------------------------------------------------------------
 #
-FROM multiarch/debian-debootstrap:amd64-buster
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:4.1.3
+# hadolint ignore=DL3006
+FROM ${BUILD_FROM}
 
 # Set download urls
 ENV \
