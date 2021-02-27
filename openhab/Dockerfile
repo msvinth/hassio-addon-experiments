@@ -89,7 +89,11 @@ COPY rootfs /
 
 # Install java
 ENV JAVA_HOME='/usr/lib/java-8'
-RUN mkdir "${JAVA_HOME}" && \
+RUN \
+    ARCH="${BUILD_ARCH}" \
+    && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
+    && if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="armhf"; fi \
+    && mkdir "${JAVA_HOME}" && \
     zulu8_amd64_url='https://cdn.azul.com/zulu/bin/zulu8.52.0.23-ca-jdk8.0.282-linux_x64.tar.gz' && \
     zulu8_armhf_url='https://cdn.azul.com/zulu-embedded/bin/zulu8.52.0.23-ca-jdk8.0.282-linux_aarch32hf.tar.gz' && \
     zulu8_arm64_url='https://cdn.azul.com/zulu-embedded/bin/zulu8.52.0.23-ca-jdk8.0.282-linux_aarch64.tar.gz' && \
