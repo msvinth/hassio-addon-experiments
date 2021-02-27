@@ -1,6 +1,6 @@
 {
   "name": "OpenHAB 2",
-  "version": "0.3.19.11",
+  "version": "0.3.19.12",
   "slug": "openhab",
   "arch": ["amd64"],
   "description": "OpenHAB 2",
@@ -10,6 +10,7 @@
     "share:rw",
     "config:rw"
   ],
+  "ingress": true,
   "options": {},
   "schema": {},
   "url": "https://github.com/msvinth/hassio-addon-experiments/tree/master/openhab",

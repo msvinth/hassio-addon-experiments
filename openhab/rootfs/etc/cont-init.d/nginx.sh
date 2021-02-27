@@ -1,18 +1,17 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Home Assistant Community Add-on: openhab
+# Home Assistant Community Add-on: openHab
 # Configures NGINX
 # ==============================================================================
 declare port
 declare certfile
-declare grafana_user
 declare ingress_entry
 declare ingress_interface
 declare keyfile
 
 bashio::log.info "Init NGinx..."
 
-# port=$(bashio::addon.port 8080)
+port=$(bashio::addon.port 8080)
 # if bashio::var.has_value "${port}"; then
 # fi
 # if bashio::var.has_value "${port}"; then
@@ -33,11 +32,5 @@ bashio::log.info "Init NGinx..."
 #     sed -i "s#%%ingress_entry%%#${ingress_entry}#g" /etc/nginx/servers/direct.conf
 # fi
 
-# ingress_interface=$(bashio::addon.ip_address)
-# sed -i "s/%%interface%%/${ingress_interface}/g" /etc/nginx/servers/ingress.conf
-
-# grafana_user='admin'
-# if bashio::config.has_value 'grafana_ingress_user'; then
-#     grafana_user=$(bashio::config 'grafana_ingress_user')
-# fi
-# sed -i "s/%%grafana_user%%/${grafana_user}/g" /etc/nginx/servers/ingress.conf
+ingress_interface=$(bashio::addon.ip_address)
+sed -i "s/%%interface%%/${ingress_interface}/g" /etc/nginx/servers/ingress.conf

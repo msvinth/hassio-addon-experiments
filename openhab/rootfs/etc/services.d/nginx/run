@@ -1,11 +1,8 @@
 #!/usr/bin/with-contenv bashio
-# shellcheck disable=SC2191
 # ==============================================================================
-# Home Assistant Community Add-on: Grafana
-# Runs the Grafana Server
+# Home Assistant Community Add-on: openHab
+# Runs the Nginx daemon
 # ==============================================================================
-
-bashio::log.info 'Starting OpenHab...'
 
 # Use server mode with the default command when there is no pseudo-TTY
 #if [ "$interactive" == "false" ] && [ "$(IFS=" "; echo "$@")" == "gosu openhab tini -s ./start.sh" ]; then
@@ -15,4 +12,9 @@ bashio::log.info 'Starting OpenHab...'
 #    exec "$@"
 #fi
 
-exec gosu openhab tini -s ./start.sh
+# Wait for grafana to become available
+bashio::net.wait_for 8080
+
+bashio::log.info "Starting NGinx..."
+
+exec nginx
