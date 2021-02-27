@@ -108,7 +108,7 @@ RUN wget -nv -O /tmp/openhab.zip "${OPENHAB_URL}" && \
     cp -a "/openhab/conf" "/openhab/userdata" "${OPENHAB_HOME}/dist" && \
     echo 'export TERM=${TERM:=dumb}' | tee -a ~/.bashrc
 #COPY update.sh ${OPENHAB_HOME}/runtime/bin/update
-#RUN chmod +x ${OPENHAB_HOME}/runtime/bin/update
+RUN chmod +x /etc/openhab/update.sh
 
 # Expose volume with configuration and userdata dir
 # VOLUME ${OPENHAB_CONF} ${OPENHAB_USERDATA} ${OPENHAB_HOME}/addons
