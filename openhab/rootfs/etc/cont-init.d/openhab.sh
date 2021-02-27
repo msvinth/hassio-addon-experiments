@@ -110,11 +110,3 @@ sync
 
 # # sync again after continuation scripts have been run
 # sync
-
-# Use server mode with the default command when there is no pseudo-TTY
-if [ "$interactive" == "false" ] && [ "$(IFS=" "; echo "$@")" == "gosu openhab tini -s ./start.sh" ]; then
-    command=($@ server)
-    exec "${command[@]}"
-else
-    exec "$@"
-fi

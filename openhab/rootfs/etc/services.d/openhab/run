@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck disable=SC2191
+# ==============================================================================
+# Home Assistant Community Add-on: Grafana
+# Runs the Grafana Server
+# ==============================================================================
+
+bashio::log.info 'Starting OpenHab...'
+
+# Use server mode with the default command when there is no pseudo-TTY
+if [ "$interactive" == "false" ] && [ "$(IFS=" "; echo "$@")" == "gosu openhab tini -s ./start.sh" ]; then
+    command=($@ server)
+    exec "${command[@]}"
+else
+    exec "$@"
+fi
