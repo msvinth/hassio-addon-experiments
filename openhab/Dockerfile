@@ -124,4 +124,4 @@ WORKDIR ${OPENHAB_HOME}
 # ENTRYPOINT ["/entrypoint.sh"]
 
 # Execute command
-CMD ["gosu", "openhab", "tini", "-s", "./start.sh"]
+CMD ["gosu", "openhab", "tini", "-s", "./start.sh", "server"]
