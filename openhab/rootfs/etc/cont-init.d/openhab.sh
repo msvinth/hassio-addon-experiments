@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/usr/bin/with-contenv bashio
 
 interactive=$(if test -t 0; then echo true; else echo false; fi)
 set -euo pipefail
