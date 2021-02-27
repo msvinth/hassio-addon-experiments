@@ -10,6 +10,12 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:4.1.3
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Setup base system
+ARG BUILD_ARCH=amd64
+
 # Set download urls
 ENV \
     JAVA_URL="https://cdn.azul.com/zulu/bin/zulu8.50.0.21-ca-jdk8.0.272-linux_x64.tar.gz" \
