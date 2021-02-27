@@ -63,6 +63,7 @@ RUN apt-get update && \
         locales \
         locales-all \
         netbase \
+        nginx \
         tini \
         unzip \
         wget \
@@ -71,6 +72,9 @@ RUN apt-get update && \
     ln -s -f /bin/true /usr/bin/chfn && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# Copy root filesystem
+COPY rootfs /
 
 # Install java
 ENV JAVA_HOME='/usr/lib/java-8'
