@@ -119,9 +119,9 @@ EXPOSE 8080 8443 8101 5007
 
 # Set working directory and entrypoint
 WORKDIR ${OPENHAB_HOME}
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# COPY entrypoint.sh /
+# RUN chmod +x /entrypoint.sh
+# ENTRYPOINT ["/entrypoint.sh"]
 
 # Execute command
 CMD ["gosu", "openhab", "tini", "-s", "./start.sh"]
