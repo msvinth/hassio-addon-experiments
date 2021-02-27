@@ -62,7 +62,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 # Install basepackages
 RUN \
     ARCH="${BUILD_ARCH}" \
-    apt-get update && \
+    && apt-get update && \
     apt-get install --no-install-recommends -y \
         arping \
         ca-certificates \
